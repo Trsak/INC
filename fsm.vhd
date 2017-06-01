@@ -1,6 +1,6 @@
 -- fsm.vhd: Finite State Machine
--- Author(s): 
---
+-- Author(s):
+-- Petr Šopf (xsopfp00)
 library ieee;
 use ieee.std_logic_1164.all;
 -- ----------------------------------------------------------------------------
@@ -171,7 +171,7 @@ begin
    when TEST11 =>
       next_state <= TEST11;
       if (KEY(15) = '1') then
-         next_state <= PRINT_MESSAGE_OK; 
+         next_state <= PRINT_MESSAGE_OK;
 	  elsif (KEY(14 downto 0) /= "000000000000000") then
          next_state <= WRONG;
       end if;
@@ -191,13 +191,13 @@ begin
    when WRONG =>
       next_state <= WRONG;
       if (KEY(15) = '1') then
-         next_state <= PRINT_MESSAGE; 
+         next_state <= PRINT_MESSAGE;
       end if;
    -- - - - - - - - - - - - - - - - - - - - - - -
    when FINISH =>
       next_state <= FINISH;
       if (KEY(15) = '1') then
-         next_state <= TEST1; 
+         next_state <= TEST1;
       end if;
    -- - - - - - - - - - - - - - - - - - - - - - -
    when others =>
@@ -242,4 +242,3 @@ begin
 end process output_logic;
 
 end architecture behavioral;
-
